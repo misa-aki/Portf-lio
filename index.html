@@ -7,17 +7,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #080b10;
-            --card-bg: rgba(18, 24, 38, 0.65);
+            --bg-color: #0b0f19;
+            --card-bg: rgba(18, 24, 38, 0.7);
             --card-hover: rgba(26, 35, 54, 0.85);
-            --border-color: rgba(99, 114, 241, 0.18);
-            --border-highlight: rgba(168, 85, 247, 0.4);
+            --border-color: rgba(99, 114, 241, 0.2);
+            --border-highlight: rgba(244, 63, 94, 0.4);
+            --accent-pink: #f43f5e;
             --accent-cyan: #06b6d4;
-            --accent-purple: #a855f7;
-            --accent-green: #10b981;
+            --accent-orange: #f97316;
             --text-primary: #f1f5f9;
             --text-heading: #ffffff;
             --text-secondary: #94a3b8;
@@ -29,27 +29,84 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
-            background-attachment: fixed;
             color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             line-height: 1.6;
             padding: 3rem 1rem;
+            position: relative;
+            overflow-x: hidden;
         }
+
+        /* Fundo com poeira/borrões luminosos flutuantes */
+        .dust-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .dust-particle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(35px);
+            opacity: 0.5;
+            mix-blend-mode: screen;
+            transition: background 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .dust-particle:hover {
+            background: #ffffff !important;
+            filter: blur(15px);
+            opacity: 0.95;
+            transform: scale(1.3);
+            z-index: 10;
+        }
+
+        /* Animações de flutuação e profundidade (frente e fundo) */
+        @keyframes floatSlow1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(80px, -100px) scale(1.4); }
+            66% { transform: translate(-60px, 70px) scale(0.7); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        @keyframes floatSlow2 {
+            0% { transform: translate(0px, 0px) scale(1.2); }
+            33% { transform: translate(-90px, 80px) scale(0.8); }
+            66% { transform: translate(70px, -60px) scale(1.5); }
+            100% { transform: translate(0px, 0px) scale(1.2); }
+        }
+
+        @keyframes floatSlow3 {
+            0% { transform: translate(0px, 0px) scale(0.9); }
+            50% { transform: translate(110px, 110px) scale(1.3); }
+            100% { transform: translate(0px, 0px) scale(0.9); }
+        }
+
+        .p1 { width: 180px; height: 180px; background: var(--accent-pink); top: 10%; left: 15%; animation: floatSlow1 18s infinite ease-in-out; }
+        .p2 { width: 220px; height: 220px; background: var(--accent-cyan); top: 60%; left: 80%; animation: floatSlow2 22s infinite ease-in-out; }
+        .p3 { width: 150px; height: 150px; background: var(--accent-orange); top: 40%; left: 45%; animation: floatSlow3 15s infinite ease-in-out; }
+        .p4 { width: 200px; height: 200px; background: #8b5cf6; top: 75%; left: 20%; animation: floatSlow1 20s infinite ease-in-out reverse; }
+        .p5 { width: 160px; height: 160px; background: #ec4899; top: 20%; left: 75%; animation: floatSlow2 17s infinite ease-in-out reverse; }
 
         .container {
             max-width: 920px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header Cyber-Aesthetic */
+        /* Header */
         header {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
@@ -59,7 +116,7 @@
             padding: 3rem 2rem;
             text-align: center;
             margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -71,7 +128,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-green));
+            background: linear-gradient(90deg, var(--accent-pink), var(--accent-cyan), var(--accent-orange));
         }
 
         .profile-img-container {
@@ -80,8 +137,8 @@
             border-radius: 50%;
             margin: 0 auto 1.5rem auto;
             padding: 4px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-cyan));
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.35);
             position: relative;
         }
 
@@ -95,20 +152,17 @@
         }
 
         h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 30%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-heading);
             margin-bottom: 0.4rem;
         }
 
         .subtitle {
             color: var(--accent-cyan);
             font-size: 1.05rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
@@ -137,7 +191,7 @@
         }
 
         .contact-links a:hover {
-            color: var(--accent-purple);
+            color: var(--accent-pink);
         }
 
         .wpp-btn {
@@ -149,7 +203,7 @@
             padding: 0.85rem 2rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
@@ -161,7 +215,7 @@
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
         }
 
-        /* Cards & Glassmorphism */
+        /* Sections */
         section {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
@@ -179,7 +233,6 @@
         }
 
         h2 {
-            font-family: 'Syne', sans-serif;
             color: var(--text-heading);
             font-size: 1.5rem;
             font-weight: 700;
@@ -192,12 +245,10 @@
         }
 
         h2 i {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-pink);
         }
 
-        /* Timeline Sem Sobreposição (Correção dos Pontos) */
+        /* Timeline */
         .timeline-item {
             position: relative;
             padding-left: 2rem;
@@ -224,14 +275,14 @@
         }
 
         .timeline-item:hover::before {
-            background-color: var(--accent-purple);
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 12px var(--accent-purple);
+            background-color: var(--accent-pink);
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 12px var(--accent-pink);
         }
 
         .item-title {
             color: var(--text-heading);
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.15rem;
             line-height: 1.3;
         }
@@ -239,12 +290,12 @@
         .item-sub {
             color: var(--accent-cyan);
             font-size: 0.88rem;
-            font-weight: 500;
+            font-weight: 600;
             margin-top: 0.2rem;
             margin-bottom: 0.6rem;
         }
 
-        /* Seção de Habilidades / Competências (Clean layout sem sobreposição) */
+        /* Skill groups */
         .skill-group {
             margin-bottom: 1.8rem;
         }
@@ -256,7 +307,7 @@
         .skill-group-title {
             color: var(--text-heading);
             font-size: 1.05rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
@@ -269,8 +320,8 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--accent-purple);
-            box-shadow: 0 0 8px var(--accent-purple);
+            background: var(--accent-orange);
+            box-shadow: 0 0 8px var(--accent-orange);
         }
 
         .tags-container {
@@ -280,15 +331,15 @@
         }
 
         .tag {
-            background: rgba(168, 85, 247, 0.08);
-            border: 1px solid rgba(168, 85, 247, 0.25);
-            color: #d8b4fe;
+            background: rgba(244, 63, 94, 0.08);
+            border: 1px solid rgba(244, 63, 94, 0.25);
+            color: #fda4af;
             padding: 0.35rem 0.85rem;
             border-radius: 8px;
             font-size: 0.88rem;
-            font-weight: 500;
+            font-weight: 600;
             backdrop-filter: blur(4px);
-            transition: all 0.25 ease;
+            transition: all 0.25s ease;
         }
 
         .tag:hover {
@@ -320,11 +371,20 @@
 </head>
 <body>
 
+    <!-- Poeira / Borrões luminosos flutuantes -->
+    <div class="dust-container">
+        <div class="dust-particle p1"></div>
+        <div class="dust-particle p2"></div>
+        <div class="dust-particle p3"></div>
+        <div class="dust-particle p4"></div>
+        <div class="dust-particle p5"></div>
+    </div>
+
     <div class="container">
         <!-- Header / Perfil -->
         <header>
             <div class="profile-img-container">
-                <img src="D:/Users/Lucas Vinicius/Downloads/eu.jpg" alt="Isabele Maciel da Silva" onerror="this.src='https://ui-avatars.com/api/?name=Isabele+Maciel&background=06b6d4&color=fff&size=140';">
+                <img src="./eu.jpg" alt="Isabele Maciel da Silva" onerror="this.src='https://ui-avatars.com/api/?name=Isabele+Maciel&background=06b6d4&color=fff&size=140';">
             </div>
             <h1>Isabele Maciel da Silva</h1>
             <p class="subtitle">Engenharia da Computação & Desenvolvimento de Software</p>
@@ -432,7 +492,7 @@
             <div class="timeline-item">
                 <div class="item-title">Sistema de Controle de Estoque com RFID</div>
                 <div class="item-sub">Projeto Acadêmico • Desenvolvimento de Software</div>
-                <p>Atuação no desenvolvimento da camada de persistência de dados utilizando PostgreSQL e integração de interface de controle.</p>
+                <p>Para o desenvolvimento da camada de persistência de dados utilizando PostgreSQL e integração de interface de controle.</p>
             </div>
 
             <div class="timeline-item">
