@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabele Maciel da Silva - Apresentação Profissional</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080b10;
+            --card-bg: rgba(18, 24, 38, 0.65);
+            --card-hover: rgba(26, 35, 54, 0.85);
+            --border-color: rgba(99, 114, 241, 0.18);
+            --border-highlight: rgba(168, 85, 247, 0.4);
+            --accent-cyan: #06b6d4;
+            --accent-purple: #a855f7;
+            --accent-green: #10b981;
+            --text-primary: #f1f5f9;
+            --text-heading: #ffffff;
+            --text-secondary: #94a3b8;
+            --wpp-color: #25d366;
+            --wpp-hover: #20ba5a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        /* Header Cyber-Aesthetic */
+        header {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-green));
+        }
+
+        .profile-img-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+            position: relative;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #0f172a;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 30%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .subtitle {
+            color: var(--accent-cyan);
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.8rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-links span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        .wpp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #ffffff;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .wpp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+        }
+
+        /* Cards & Glassmorphism */
+        section {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.3s ease;
+        }
+
+        section:hover {
+            border-color: var(--border-highlight);
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            color: var(--text-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.9rem;
+        }
+
+        h2 i {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Timeline Sem Sobreposição (Correção dos Pontos) */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.8rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0.35rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--accent-purple);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 12px var(--accent-purple);
+        }
+
+        .item-title {
+            color: var(--text-heading);
+            font-weight: 600;
+            font-size: 1.15rem;
+            line-height: 1.3;
+        }
+
+        .item-sub {
+            color: var(--accent-cyan);
+            font-size: 0.88rem;
+            font-weight: 500;
+            margin-top: 0.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        /* Seção de Habilidades / Competências (Clean layout sem sobreposição) */
+        .skill-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group-title {
+            color: var(--text-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-group-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-purple);
+            box-shadow: 0 0 8px var(--accent-purple);
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            color: #d8b4fe;
+            padding: 0.35rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+            transition: all 0.25 ease;
+        }
+
+        .tag:hover {
+            background: rgba(6, 182, 212, 0.15);
+            border-color: rgba(6, 182, 212, 0.5);
+            color: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            padding: 1.5rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem 0.5rem;
+            }
+            header, section {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header / Perfil -->
+        <header>
+            <div class="profile-img-container">
+                <img src="D:/Users/Lucas Vinicius/Downloads/eu.jpg" alt="Isabele Maciel da Silva" onerror="this.src='https://ui-avatars.com/api/?name=Isabele+Maciel&background=06b6d4&color=fff&size=140';">
+            </div>
+            <h1>Isabele Maciel da Silva</h1>
+            <p class="subtitle">Engenharia da Computação & Desenvolvimento de Software</p>
+            
+            <div class="contact-links">
+                <span><i class="fa-solid fa-location-dot"></i> Manaus - AM</span>
+                <span><i class="fa-solid fa-envelope"></i> <a href="mailto:isabele.ma172@gmail.com">isabele.ma172@gmail.com</a></span>
+                <span><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/isabele-maciel" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+            </div>
+
+            <a href="https://wa.me/5592999726204?text=Ol%C3%A1%2C%20Isabele!%20Vim%20pelo%20seu%20site%20de%20apresenta%C3%A7%C3%A3o%20profissional." class="wpp-btn" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp"></i> Entrar em Contato via WhatsApp
+            </a>
+        </header>
+
+        <!-- Resumo -->
+        <section>
+            <h2><i class="fa-solid fa-user"></i> Resumo</h2>
+            <p>
+                Profissional proativa e organizada, cursando graduação em Engenharia da Computação e Matemática com formação técnica em Desenvolvimento de Software. Busco inserção no mercado de tecnologia em posições de nível inicial ou estágio, utilizando minha facilidade com sistemas, visão analítica e raciocínio lógico para contribuir com a equipe e apoiar as demandas tecnológicas da empresa.
+            </p>
+        </section>
+
+        <!-- Formação Acadêmica -->
+        <section>
+            <h2><i class="fa-solid fa-graduation-cap"></i> Formação</h2>
+            
+            <div class="timeline-item">
+                <div class="item-title">Bacharelado em Engenharia da Computação - FMM</div>
+                <div class="item-sub">1º Período • Cursando</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="item-title">Licenciatura em Matemática - UFAM</div>
+                <div class="item-sub">4º Período • Cursando</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="item-title">Técnico em Desenvolvimento de Software - FPF Tech</div>
+                <div class="item-sub">2024 - 2025 • Concluído</div>
+            </div>
+        </section>
+
+        <!-- Competências Técnicas -->
+        <section>
+            <h2><i class="fa-solid fa-code"></i> Competências Técnicas</h2>
+            
+            <div class="skill-group">
+                <div class="skill-group-title">Linguagens de Programação</div>
+                <div class="tags-container">
+                    <span class="tag">Python</span>
+                    <span class="tag">Golang</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">C</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-title">Infraestrutura</div>
+                <div class="tags-container">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">AWS</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-title">Banco de Dados e Análise</div>
+                <div class="tags-container">
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-title">Ferramentas & Idiomas</div>
+                <div class="tags-container">
+                    <span class="tag">Git</span>
+                    <span class="tag">GitHub</span>
+                    <span class="tag">Terminal Linux</span>
+                    <span class="tag">Figma</span>
+                    <span class="tag">Inglês Intermediário (Leitura técnica e comunicação básica)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos Pessoais & Acadêmicos -->
+        <section>
+            <h2><i class="fa-solid fa-briefcase"></i> Projetos</h2>
+            
+            <div class="timeline-item">
+                <div class="item-title">Sistema de Recomendação de Filmes</div>
+                <div class="item-sub">Projeto Pessoal / Portfólio • Machine Learning & Data Processing</div>
+                <p>Desenvolvimento de algoritmo de recomendação com foco em processamento de dados e aprendizado de máquina, utilizando Python, bibliotecas como Pandas e NumPy, e boas práticas de versionamento no GitHub.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="item-title">Protótipo de Parada de Ônibus Inteligente</div>
+                <div class="item-sub">Projeto Acadêmico • IoT & Sistemas Embarcados</div>
+                <p>Integração de hardware e microcontroladores (Arduino UNO, sensores ambientais DHT11/HL-69, painel solar de 5V, baterias Li-ion e display LCD) para monitoramento de mobilidade urbana inteligente.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="item-title">Sistema de Controle de Estoque com RFID</div>
+                <div class="item-sub">Projeto Acadêmico • Desenvolvimento de Software</div>
+                <p>Atuação no desenvolvimento da camada de persistência de dados utilizando PostgreSQL e integração de interface de controle.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="item-title">Projeto Automatic Home</div>
+                <div class="item-sub">Projeto Acadêmico • Sistemas Embarcados & Automação</div>
+                <p>Implementação de lógica de automação residencial de baixo nível utilizando Linguagem C.</p>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>© 2026 • Isabele Maciel da Silva</p>
+        </footer>
+    </div>
+
+</body>
+</html>
